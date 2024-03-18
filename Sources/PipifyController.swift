@@ -8,6 +8,7 @@ import AVKit
 import Combine
 import os.log
 
+@available(iOS 16.0, *)
 public final class PipifyController: NSObject, ObservableObject, AVPictureInPictureControllerDelegate,
                                        AVPictureInPictureSampleBufferPlaybackDelegate {
     
@@ -269,3 +270,39 @@ public final class PipifyController: NSObject, ObservableObject, AVPictureInPict
 }
 
 let logger = Logger(subsystem: "com.getsidetrack.pipify", category: "Pipify")
+
+class Logger {
+
+    let subsystem: String
+    let category: String
+
+    init(subsystem: String, category: String) {
+        self.subsystem = subsystem
+        self.category = category
+    }
+
+    func trace(_ string: String) {
+        log(string)
+    }
+
+    func debug(_ string: String) {
+        log(string)
+    }
+
+    func warning(_ string: String) {
+        log(string)
+    }
+
+    func info(_ string: String) {
+        log(string)
+    }
+
+    func error(_ string: String) {
+        log(string)
+    }
+
+    private func log(_ string: String) {
+        print(string)
+    }
+
+}
